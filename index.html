@@ -4,49 +4,91 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>superhero info</title>
+   <title>superhero hunter</title>
    <!-- style sheet here -->
    <link rel="stylesheet" href="./style/index.css">
    <script src="https://kit.fontawesome.com/9d34235b2f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-   <!-- !! navbar structure -->
-   <nav class="nav" id="nav">
-      <div class="logo">
-         <i class="fa-solid fa-circle-exclamation"></i>
-      </div>
-     
-      <div class="my-favourite-hero">Favourites</div>
-      <div class="superhero">superhero</div>
+   <!-- !! Navbar structure start here -->
+   <nav class="navbar" id="navbar">
+      <!-- logo and app name -->
+      <div class="app-logo-name">
+         <img src="./logo/Batman-logo.jpg" alt="logo">
+         <div class="app-name">
+            <span id="first-name">Superhero</span>
+            <span id="last-name">Hunter</span>
+         </div>
+         <!-- home and favourites links -->
+         <div class="nav-btn">
+            <a href="index.html" id="home" class="cur-poi">Home</a>
+            <a href="favourite.html" target="_parent" id="favourite" class="cur-poi">Favourites</a>
+         </div> 
 
-      <form>
-         <i class="fa-solid fa-magnifying-glass"></i>
-         <input type="text" placeholder="search super hero">
-         <button type="submit">Search</button>
-      </form>
+      </div>
+      
+      <!-- Profile logo -->
+      <div class="profile cur-poi">
+         <i class="fa-solid fa-circle-user"></i>
+      </div>
+
+      <!-- foldable nav menu -->
+      <div class="foldable-menu">
+         <div id="open-menu" >
+            <i class="fa-solid fa-bars cur-poi"></i>
+         </div>
+         <div id="close-menu" class="hide">
+            <i class="fa-solid fa-xmark cur-poi"></i>
+         </div>
+         <div class="nav-list hide" id="nav-list">
+            <a href="index.html">Home</a>
+            <a href="favourite.html">Favourites</a>
+            <a href="index.html">profile</a>
+            <a href="login.html">Logout</a>
+         </div>
+         
+      </div>
    </nav>
+   <!-- Navbar structuring end here -->
 
-   <!-- !! main container to show all superhero cards -->
-   <button id="fetch-image">Fetch characters</button>
-   <main>
-      <div class="superhero-card">
-         <div class="left-block">
-            <img src="" alt="">
-         </div>
-         <div class="right-block">
-            <span>Title</span>
-            <button>Favourite</button>
-         </div>
-      </div>
 
+   <!-- ! Main container -->
+   <main class="main" id="main">
+
+      <!-- Todo: serach section -->
+      <section class="search-section">
+         <!-- search box -->
+         <div class="search-bar-wrapper">
+            <div class="search-bar">
+               <div class="input-box">
+                  <input type="text" id="input" placeholder="Type here...">
+               </div>
+               <i class="fa-solid fa-magnifying-glass"></i>
+               <span id="search-span" class="cur-poi ">Search</span>
+            </div>    
+            <!-- auto suggestion container -->
+            <div class="auto-suggest" id="auto-suggest"> </div> 
+         </div> 
+      </section>
+
+      <!-- Todo: superhero container, contains all superhero card -->
+      <section class="superhero-container">
+         <!-- superhero card list container-->
+         <div class="superhero-card-container" id="superhero-card-container"></div>
+      </section>
    </main>
+   <!-- main end here -->
 
-   <!-- !! other details -->
+
+   <!-- !! Footer details -->
    <footer>
    </footer>
 
-   
 </body>
-   <!-- js file here -->
-   <script src="./script/index.js"></script>
+   <!-- cdn for md5 crypto-js to generate hash -->
+   <script src="https://cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+   <!-- js files -->
+   <script src="./features/auto-complete.js"></script>
+   <script src="./features/suggestion.js"></script>
+   <script src="./features/index.js"></script>
 </html>

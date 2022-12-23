@@ -1,0 +1,473 @@
+/**
+* ! Removing default style rules
+**/
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body{
+   font-family: sans-serif;
+   font-size: 16px;
+   min-width: 250px;
+   overflow:hidden;
+}
+
+
+/**
+* ! common style rules
+**/
+.text-center{
+   text-align: center;
+}
+
+.cur-poi {
+   cursor: pointer;
+}
+
+.hide {
+   display: none;
+}
+
+.show{
+   display: block;
+}
+
+/**
+* ! styling for Navbar part
+**/
+nav {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px;
+   background-image: linear-gradient(45deg, rgb(212, 125, 125), rgb(142, 142, 212));
+}
+/* logo and app name part */
+.app-logo-name {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap:5px;
+}
+
+.app-logo-name img {
+   height: 70px;
+   width: 70px;
+   border: 2px solid rgb(161, 157, 157);
+   border-radius: 50%;
+}
+
+.app-name {
+   display: flex;
+   flex-direction: column;
+   font-weight: bold;
+   text-align: center;
+   font-size: 20px;;
+}
+
+#first-name{
+   color:rgb(192, 202, 202)
+}
+
+#last-name{
+   color:rgb(148, 16, 7);
+}
+
+/* home and favourites link */
+.nav-btn{
+   margin-left: 30px;
+   display: flex;
+   flex-direction: row;
+   column-gap: 20px;
+}
+.nav-btn a{
+   font-size: 20px;
+   text-decoration: none;
+   font-weight: bold;
+}
+/* user profile part */
+.profile i {
+   font-size: 40px;
+   color:rgb(109, 103, 103);
+}
+
+/* foldable nav menu */
+.foldable-menu {
+   position: relative;
+   display: none;
+}
+
+#open-menu,
+#close-menu {
+   position: absolute;
+   right: 10px;
+   top:-50%;
+   transform: translateY(-50%);
+}
+
+#open-menu i,
+#close-menu i {
+   font-size: 30px;
+   font-weight: bold;
+}
+
+.nav-list {
+   z-index: 1;
+   position: absolute;
+   right:-10px;
+   top:45px;
+   background-image: linear-gradient(45deg, rgb(192, 93, 93), rgb(138, 138, 204));
+}
+
+.nav-list a {
+   display: block;
+   padding: 10px 0;
+   padding-left: 10px;
+   padding-right: 20px;
+   text-decoration: none;
+   color:white;
+   font-size: 20px;
+}
+
+.nav-list a:hover {
+   background-color: rgb(233, 175, 175);
+}
+
+
+/**
+* ! style rules for search section
+**/
+.search-section{
+   height: 150px;
+   background-image:url("../logo/city.jpg");
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.search-bar-wrapper {
+   position: relative;
+}
+
+.search-bar{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+
+.input-box {
+   width: 50vw;
+   height: 40px;
+   border-radius: 20px;
+   background-color: rgba(110, 107, 107, 0.5);
+}
+
+.input-box input {
+   width: inherit;
+   height: inherit;
+   padding: 10px 35px;
+   color:rgb(243, 236, 236);
+   font-size: 20px;
+   background-color: inherit;
+   border: none;
+   outline: none;
+   border-radius: 20px;
+}
+
+::placeholder {
+   color:rgba(226, 217, 219, 0.568)
+}
+
+.search-bar span {
+   height: 38px;
+   position: absolute;
+   top:1px;
+   right: 0;
+   padding: 10px;
+   font-size: 16px;
+   border-radius: 0 20px  20px 0;
+   background-color:tomato;
+   color:rgb(45, 63, 38);
+   font-weight: bold;
+}
+
+.search-bar i {
+   position: absolute;
+   left:0;
+   padding-left: 10px;
+   color: rgb(170, 160, 160);
+
+}
+/* auto suggestion container */
+.auto-suggest {
+   width: 50vw;
+   position: absolute;
+   top:120%;
+  
+}
+
+.auto-suggest li {
+   padding: 10px;
+   list-style-type: none;
+   display: block;
+   color: rgb(232, 234, 247);
+   background-color: rgb(59, 62, 63);
+}
+
+.auto-suggest li:hover {
+   border-radius: 3px;
+   background-color: rgb(155, 98, 212);
+   cursor: pointer;
+}
+
+/**
+* ! style rules for superhero container section
+**/
+::-webkit-scrollbar {
+   display: none;
+}
+
+.superhero-card-container {
+   height: 100vh;
+   display: grid;
+   grid-template-columns: repeat(1, 60vw);
+   justify-content: center;
+   row-gap: 10px;
+   overflow-y: scroll;
+   padding-top: 10px;;
+   padding-bottom: 49vh;
+   background-image: linear-gradient(45deg, rgb(36, 34, 34), rgb(41, 44, 41));
+}
+
+/* style for superhero card  */
+.superhero-card {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: 2px solid rgb(145, 138, 138);
+   border-radius: 5px;
+   background-color: rgb(194, 106, 106);
+   padding: 10px;
+}
+
+.card-left-block {
+   width: 40%;
+}
+
+.card-right-block {
+   height: 100%;
+   width: 60%;
+   display: flex;
+   flex-direction: column;
+   row-gap:10px;
+   font-size: 18px;
+   color:rgb(206, 181, 181);
+   padding-left: 20px;
+  
+}
+
+.card-right-block .title{
+   font-size: 25px;
+   font-weight: bold;
+   color:rgb(219, 216, 218)
+}
+
+.favourite-btn {
+   margin: auto;
+   width:fit-content;
+   padding: 10px;
+   border-radius: 5px;
+   border: none;
+   font-size: 18px;
+   font-weight: bold;
+   cursor: pointer;
+   background-color: rgb(146, 179, 182);
+}
+
+.search-not-found {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap:10px;
+}
+.search-not-found img{
+   height: 300px;
+   width: 300px;;
+   border-radius: 50%;
+}
+.back-to-home {
+   background-image: linear-gradient(45deg, green,tomato,rgb(145, 134, 134));
+   padding: 10px;
+   border-radius: 10px;
+   text-decoration: none;
+   color:white;
+}
+
+/**
+* !!superhero detailed info styling
+**/
+.superhero-info-card {
+   display: flex;
+   flex-direction: row;
+   gap:20px;
+   border:2px solid white;
+   border-radius: 5px;
+   padding: 20px 0;
+   background-image: linear-gradient(45deg, rgb(78, 218, 51), rgb(209, 146, 146));
+}
+
+.right-block-info{
+ display: flex;
+ flex-direction: column;
+ row-gap: 30px;
+}
+
+.right-block-info .details {
+   display: flex;
+   flex-direction: column;
+   row-gap: 10px;
+   justify-content: start;
+}
+
+.right-block-info .title {
+   border-radius: 10px;;
+   padding: 10px;
+   width: fit-content;
+   font-size: 20px;
+   font-weight: bold;
+   background-color: rgb(204, 202, 202);
+}
+
+.name-favourite {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.name-favourite .hero-name {
+   font-size: 25px;
+   font-weight: bold;
+   color: blue;
+   text-decoration: underline;
+}
+
+.name-favourite .make-favourite {
+   background-color: rgb(183, 177, 185);
+   font-size: 20px;
+   font-weight: bold;
+   width: fit-content;
+   padding: 10px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+
+/**
+* !! media queries for responsivenes of app for various devices
+**/
+@media screen and (max-width:1260px) {
+   .superhero-info-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 260px;
+   }
+   .left-block-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   .left-block-info img {
+      width: auto;
+   }
+   .right-block-info {
+      margin: 0 10vw;
+   }
+   .right-block-info .title {
+      margin: auto;
+   }
+}
+
+@media  screen and (max-width:960px) {
+   .superhero-card-container {
+      grid-template-columns: repeat(1, 70vw);
+   }
+}
+
+@media screen and (max-width:768px){
+   .superhero-card-container {
+      grid-template-columns: repeat(1, 85vw);
+   }
+}
+
+@media screen and (max-width:560px) {
+   body{
+      width: 100%;
+   }
+
+   .foldable-menu {
+      display: block;
+   }
+
+   .profile,
+   .nav-btn {
+      display: none;
+   }
+
+   .input-box,
+   .auto-suggest {
+      width: 80vw;
+   }
+
+   .superhero-card-container {
+      grid-template-columns: repeat(1, 100vw);
+   }
+
+   .superhero-card {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      text-align: center;
+   }
+   
+   .card-left-block {
+      width: auto;
+   }
+
+   .card-right-block {
+      flex-direction: column;
+      padding-left:0;
+   }
+
+   .card-right-block .title{
+      font-size: 25px;
+      font-weight: bold;
+      color:rgb(219, 216, 218);
+   
+   }
+   .superhero-info-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 260px;
+   }
+   .left-block-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   .left-block-info img {
+      width: 90%;
+   }
+   .right-block-info .title {
+      margin: auto;
+   }
+}
+
+
+
