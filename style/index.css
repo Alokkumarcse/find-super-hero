@@ -141,8 +141,8 @@ nav {
 * ! style rules for search section
 **/
 .search-section{
-   height: 150px;
-   background-image:url("../logo/city.jpg");
+   height: 180px;
+   background-image:url("../images/city.jpg");
    position: relative;
    display: flex;
    justify-content: center;
@@ -312,6 +312,7 @@ nav {
 /**
 * !!superhero detailed info styling
 **/
+
 .superhero-info-card {
    display: flex;
    flex-direction: row;
@@ -348,6 +349,7 @@ nav {
    display: flex;
    flex-direction: row;
    justify-content: space-between;
+   padding-right: 5px;
 }
 
 .name-favourite .hero-name {
@@ -367,6 +369,16 @@ nav {
    cursor: pointer;
 }
 
+.about {
+   font-weight: bold;
+   text-transform: capitalize;
+   color:rgb(83, 99, 99)
+}
+
+.value {
+   font-weight:500;
+   color:rgb(81, 8, 83)
+}
 
 /**
 * !! media queries for responsivenes of app for various devices
@@ -466,6 +478,11 @@ nav {
    }
    .right-block-info .title {
       margin: auto;
+   }
+
+   .search-not-found img{
+      height: 180px;
+      width: 220px;;
    }
 }
 

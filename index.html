@@ -5,6 +5,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>superhero hunter</title>
+   <link rel="shortcut icon" href="/groot.ico" type="image/x-icon">
    <!-- style sheet here -->
    <link rel="stylesheet" href="./style/index.css">
    <script src="https://kit.fontawesome.com/9d34235b2f.js" crossorigin="anonymous"></script>
@@ -14,7 +15,7 @@
    <nav class="navbar" id="navbar">
       <!-- logo and app name -->
       <div class="app-logo-name">
-         <img src="./logo/Batman-logo.jpg" alt="logo">
+         <img src="./images/groot.jpg" alt="logo">
          <div class="app-name">
             <span id="first-name">Superhero</span>
             <span id="last-name">Hunter</span>
@@ -22,7 +23,12 @@
          <!-- home and favourites links -->
          <div class="nav-btn">
             <a href="index.html" id="home" class="cur-poi">Home</a>
-            <a href="favourite.html" target="_parent" id="favourite" class="cur-poi">Favourites</a>
+            <a href="favourite.html" 
+               target="_parent" 
+               id="favourite" 
+               class="cur-poi" 
+               onclick="showFavouriteList"
+            >Favourites</a>
          </div> 
 
       </div>

@@ -46,8 +46,7 @@ searchBtn.addEventListener('click',handleSearchEvent);
 
 // Set your API key and base ur
 const url="https://akabab.github.io/superhero-api/api/all.json";
-
-// show all cards when start the app
+// show all cards when search somethings in  the app
 let getSuperheroData = (searchData) => {
 
    fetch(url)
@@ -56,13 +55,12 @@ let getSuperheroData = (searchData) => {
       let resultData = allData.filter((ele) => {
          return ele.name.toLocaleLowerCase().includes(searchData.toLocaleLowerCase());
       });
-      console.log(resultData);
       superheroCardContainer.innerHTML="";
       // if search result not found
       if(!resultData.length){
          superheroCardContainer.innerHTML =`
             <div class='search-not-found'>
-              <img src="./logo/no-result.jpg" alt="">
+              <img src="./images/no-result.jpg" alt="">
               <a href="../index.html" class="back-to-home">Back to Home</a>
             </div> `
          return;
@@ -78,7 +76,7 @@ let getSuperheroData = (searchData) => {
                <span class="title">${ele.name}</span>
                <span class="full-name">${ele.biography.fullName}</span>
                <span class="publisher">${ele.biography.publisher}</span>
-               <span class="favourite-btn" id="make-favourite" onclick="addToFavouriteList(${ele.id})">Favourite</span> 
+               <span class="favourite-btn" id="make-favourite" onclick="addToFavouriteList(this, ${ele.id})">Favourite</span> 
             </div>
          </div>`
          }
@@ -87,25 +85,32 @@ let getSuperheroData = (searchData) => {
    .catch(error => console.log(error));
 }
 
-//make favourite list container
-let favList = [];
-
 // handle favourite button click, add character into favourite list
-let addToFavouriteList = (id) => {
-   favList = JSON.parse(localStorage.getItem('data')) || [];
+let favList = [];
+let addToFavouriteList = (ele, id) => {
+   favList = JSON.parse(localStorage.getItem('data'))||[];
+   // if characters already favourited then don't add into favList
+   if(favList.some(ele => ele.id === id)){
+      window.alert("Already present into favouriteList!");
+      return;
+   }
+   ele.style.backgroundColor= "tomato";
    fetch(url)
    .then(response => response.json())
-   .then(allData => {
-      favList.push(allData.filter((ele) => ele.id === id ));
-      localStorage.setItem('data',JSON.stringify(favList));
+   .then(responseData => {
+      responseData.filter((ele) => {
+         if(ele.id === id){
+            favList.push(ele);
+         }
+      })
+      localStorage.setItem('data', JSON.stringify(favList));
    })
-   .catch(error => console.error(error));
+   .catch(error => console.log(error));
 }
 
 
 // superhero info page to show the detailed info about them
 let superheroInfo = (id) => {
-   console.log("hello");
    superheroCardContainer.innerHTML = "";
    fetch(url)
    .then(response => response.json())
@@ -122,49 +127,124 @@ let superheroInfo = (id) => {
             <div class="left-block-info">
                <img src="${images.lg}" alt="">
             </div>
+
             <div class="right-block-info">
                <div class="name-favourite">
                   <span class="hero-name">${name}</span>
-                  <span class="make-favourite" id="make-favourite" onclick="addToFavouriteList(${ele.id})">favourite</span>
+                  <span class="make-favourite" id="make-favourite" onclick="addToFavouriteList(this, ${ele.id})">Favourite</span>
                </div>
                <div class="power-stats details">
                   <span class="title">Power Stats</span>
-                  <span>intelligence:${intelligence}</span>
-                  <span>strength: ${strength}</span>
-                  <span>speed: ${speed}</span>
-                  <span>Durability:${durability}</span>
-                  <span>power: ${power}</span>
-                  <span>combat:${combat}</span>
+                  <span> 
+                     <span class='about'>intelligence: </span>
+                     <span class='value'> ${intelligence}</span>
+                  </span>
+                  <span> 
+                     <span class='about'>strength: </span>
+                     <span class='value'>${strength}</span>
+                  </span>
+                  <span>
+                     <span class='about'> speed: </span>
+                     <span class='value'> ${speed}</span>
+                  </span>
+                  <span>
+                     <span class='about'> Durability: </span>
+                     <span class='value'>${durability}</span>
+                  </span>
+                  <span>
+                     <span class='about'>power: </span>
+                     <span class='value'>${power}</span>
+                  </span>
+                  <span>
+                     <span class='about'>combat: </span>
+                     <span class='value'>${combat}</span>
+                  </span>
                </div>
+
                <div class="biography details">
                   <span class="title">Biography</span>
-                  <span>Alignment: ${alignment}</span>
-                  <span>Alter Egos: ${alterEgos}</span>
-                  <span>Full Name: ${fullName}</span>
-                  <span>Place Of Birth: ${placeOfBirth}</span>
-                  <span>Publisher:${publisher} </span>
-                  <span>First Appearence:${firstAppearance} </span>
-                  <span>Aliases:${aliases} </span>
+                  <span>
+                     <span class='about'>Alignment: </span>
+                     <span class='value'>${alignment}</span>
+                  </span>
+                  <span>
+                     <span class='about'>Alter Egos:</span>
+                     <span class='value'> ${alterEgos}</span>
+                  </span>
+                  <span>
+                     <span class='about'>Full Name: </span>
+                     <span class='value'>${fullName}</span>
+                  </span>
+                  <span>
+                     <span class='about'>Place Of Birth: </span>
+                     <span class='value'>${placeOfBirth}</span>
+                  </span>
+                  <span>
+                     <span class='about'>Publisher: </span>
+                     <span class='value'>${publisher}</span>
+                  </span>
+                  <span>
+                     <span class='about'>First Appearence: </span>
+                     <span class='value'>${firstAppearance}</span>
+                  </span>
+                  <span>
+                     <span class='about'>Aliases: </span>
+                     <span class='value'>${aliases}</span>
+                  </span>                 
                </div>
+
                <div class="apperarance details">
                   <span class="title">apperarance</span>
-                  <span>Geneder:${gender} </span>
-                  <span>Race:${race} </span>
-                  <span>Height:${heigth} </span>
-                  <span>Weight:${weight} </span>
-                  <span>Eye Color:${eyeColor} </span>
-                  <span>Hair Color:${hairColor}</span>
+                  <span>
+                     <span class='about'>Geneder: </span>
+                     <span class='value'>${gender}</span>
+                  </span>           
+                  <span>
+                     <span class='about'>Race: </span>
+                     <span class='value'>${race}</span>
+                  </span>           
+                  <span>
+                     <span class='about'>Height: </span>
+                     <span class='value'>${heigth}</span>
+                  </span>           
+                  <span>
+                     <span class='about'>Weight: </span>
+                     <span class='value'>${weight}</span>
+                  </span>  
+                  <span>
+                     <span class='about'>Eye Color: </span>
+                     <span class='value'>${eyeColor}</span>
+                  </span>           
+                  <span>
+                     <span class='about'>Hair Color: </span>
+                     <span class='value'>${hairColor}</span>
+                  </span>                    
                </div>
+
                <div class="connections details">
                   <span class="title">connections</span>
-                  <span>Group Affiliation:${groupAffiliation} </span>
-                  <span>Relatives:${relatives} </span>
+                  <span>
+                     <span class='about'>Group Affiliation: </span>
+                     <span class='value'>${groupAffiliation} </span>
+                  </span>  
+                  <span>
+                     <span class='about'>Relatives: </span>
+                     <span class='value'>${relatives}</span>
+                  </span>           
                </div>
+
                <div class="works details">
                   <span class="title">works</span>
-                  <span>Occupation:${occupation} </span>
-                  <span>Base:${base} </span>
+                  <span>
+                     <span class='about'>Occupation: </span>
+                     <span class='value'>${occupation} </span>
+                  </span>  
+                  <span>
+                     <span class='about'>Base:</span>
+                     <span class='value'>${base}</span>
+                  </span>     
                </div>
+               
             </div>
          </div>` 
       })

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Favourites</title>
+   <link rel="shortcut icon" href="/groot.ico" type="image/x-icon">
+   <!-- stylesheet here-->
+   <link rel="stylesheet" href="/style/index.css">
+   <link rel="stylesheet" href="/style/favourite.css">
+   <script src="https://kit.fontawesome.com/9d34235b2f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+     <!-- !! Navbar structure start here -->
+     <nav class="navbar" id="navbar">
+      <!-- logo and app name -->
+      <div class="app-logo-name">
+         <img src="./images/groot.jpg" alt="logo">
+         <div class="app-name">
+            <span id="first-name">Superhero</span>
+            <span id="last-name">Hunter</span>
+         </div>
+         <!-- home and favourites links -->
+         <div class="nav-btn">
+            <a href="index.html" id="home" class="cur-poi">Home</a>
+            <a href="favourite.html" 
+               target="_parent" 
+               id="favourite" 
+               class="cur-poi" 
+               onclick="showFavouriteList"
+            >Favourites</a>
+         </div> 
+
+      </div>
+      
+      <!-- Profile logo -->
+      <div class="profile cur-poi">
+         <i class="fa-solid fa-circle-user"></i>
+      </div>
+
+      <!-- foldable nav menu -->
+      <div class="foldable-menu">
+         <div id="open-menu" >
+            <i class="fa-solid fa-bars cur-poi"></i>
+         </div>
+         <div id="close-menu" class="hide">
+            <i class="fa-solid fa-xmark cur-poi"></i>
+         </div>
+         <div class="nav-list hide" id="nav-list">
+            <a href="index.html">Home</a>
+            <a href="favourite.html" onclick="showFavouriteList">Favourites</a>
+            <a href="index.html">profile</a>
+            <a href="login.html">Logout</a>
+         </div>
+         
+      </div>
+   </nav>
+  
+   <!-- ! contain all favourite superheros -->
+   <h2>Your Favourite Superheros</h2>
+   <section class="superhero-container">
+      <!-- superhero card list container-->
+      <div class="superhero-card-container" id="superhero-card-container"></div>
+   </section>
+   
+</body>
+   <script src="/features/favourite.js"></script>
+</html>
