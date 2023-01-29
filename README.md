@@ -9,7 +9,7 @@ It is built using HTML, CSS, Vanilla Javascript.
 - Users are able to **Search** for the Super Heroes by entering the name or searchable-term in the Search Input. It shows a list of results as **autocomplete suggestions**.
 - User can see details of superhero, Clicking upon **superhero image.** It directs us to that particular superhero card with all the information provided by the SuperHero() API.
 - Users can Mark their Favourite Super Heroes in the 'favourites' section. It is stored persistently in the browser's local storage.
-## 🦸‍♀️ Project Live
+## 🦸‍♀️ Project Demo
 ![alt-text](https://github.com/Alokkumarcse/find-super-hero/blob/main/superhero.gif)
 
 ## ❗ Note
