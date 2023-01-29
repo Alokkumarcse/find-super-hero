@@ -10,7 +10,7 @@ It is built using HTML, CSS, Vanilla Javascript.
 - User can see details of superhero, Clicking upon **superhero image.** It directs us to that particular superhero card with all the information provided by the SuperHero() API.
 - Users can Mark their Favourite Super Heroes in the 'favourites' section. It is stored persistently in the browser's local storage.
 ## End Result here
-![alt text](https://github.com/Alokkumarcse/find-super-hero/blob/main/superhero.gif)
+![alt-text](https://github.com/Alokkumarcse/find-super-hero/blob/main/superhero.gif)
 
 ## ❗ Note
 - We are in process of improving the user experience.
